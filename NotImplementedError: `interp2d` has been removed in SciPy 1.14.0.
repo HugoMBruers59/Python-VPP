@@ -1,0 +1,25 @@
+(venv) C:\Users\hugom\pyproj3\Python-VPP>python runVPP.py
+INFO:root:Optimization successful.
+Traceback (most recent call last):
+  File "C:\Users\hugom\pyproj3\Python-VPP\runVPP.py", line 45, in <module>
+    vpp.SailChart(True)
+    ~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\hugom\pyproj3\Python-VPP\src\VPPMod.py", line 337, in SailChart
+    sail_chart(self, save, fname)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hugom\pyproj3\Python-VPP\src\UtilsMod.py", line 181, in sail_chart
+    func = interpolate.interp2d(twas, twss, sail, kind="cubic")
+  File "C:\Users\hugom\pyproj3\Python-VPP\venv\Lib\site-packages\scipy\interpolate\_interpolate.py", line 129, in __init__
+    raise NotImplementedError(err_mesg)
+NotImplementedError: `interp2d` has been removed in SciPy 1.14.0.
+
+For legacy code, nearly bug-for-bug compatible replacements are
+`RectBivariateSpline` on regular grids, and `bisplrep`/`bisplev` for
+scattered 2D data.
+
+In new code, for regular grids use `RegularGridInterpolator` instead.
+For scattered data, prefer `LinearNDInterpolator` or
+`CloughTocher2DInterpolator`.
+
+For more details see
+https://scipy.github.io/devdocs/tutorial/interpolate/interp_transition_guide.html
